@@ -34,7 +34,7 @@ y_pred = X*w + b
 loss = tf.square(Y-y_pred,name='loss')
 
 ## defining optimizer
-optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.01).minimize(loss)
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001).minimize(loss)
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
@@ -52,7 +52,7 @@ with tf.Session() as sess:
         except tf.errors.OutOfRangeError:
             pass
 
-        print('Epoch {0}: {1}'.format(i, total_loss/n_samples))
+        #print('Epoch {0}: {1}'.format(i, total_loss/n_samples))
 
     writer.close()
     w_out, b_out = sess.run([w, b]) 
