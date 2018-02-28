@@ -51,7 +51,8 @@ with tf.Session() as sess:
         total_loss = 0
         try:
             while True:
-                _, l = sess.run([optimizer, loss]) 
+                _, l = sess.run([optimizer, loss])
+                print(sess.run([optimizer, loss]))
                 total_loss += l
         except tf.errors.OutOfRangeError:
             pass
