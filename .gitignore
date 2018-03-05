@@ -9,3 +9,4 @@ examples/graphs/*
 examples/graph/*
 examples/checkpoints/*
 examples/visualization/*
+*.DS_Store
