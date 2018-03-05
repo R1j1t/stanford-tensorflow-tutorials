@@ -6,5 +6,6 @@
 .env/*
 examples/data/*
 examples/graphs/*
+examples/graph/*
 examples/checkpoints/*
 examples/visualization/*
