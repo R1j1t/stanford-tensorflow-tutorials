@@ -11,6 +11,7 @@ print (n_samples)
 
 # Step 2: create Dataset and iterator
 dataset = tf.data.Dataset.from_tensor_slices((boston.data,boston.target))
+dataset = dataset.shuffle(1000)
 
 iterator = dataset.make_initializable_iterator()
 X,Y = iterator.get_next()
@@ -27,7 +28,7 @@ b = tf.get_variable('bias', initializer=tf.zeros((1,1),dtype=tf.float64,name='on
 y_pred = tf.matmul(X,w,transpose_b=False) + b
 
 ## loss
-loss = tf.square(tf.abs(Y-y_pred),name='loss')
+loss = tf.square(tf.norm(Y-y_pred),name='loss')
 
 ## defining optimizer
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.0000012).minimize(loss)
